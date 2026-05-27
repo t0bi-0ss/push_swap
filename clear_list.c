@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/27 15:58:45 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/27 16:10:17 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/27 16:29:40 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,14 @@
 void	clear_list(t_list **head)
 {
 	t_list *tmp;
+	char	*str;
 
 	while(*head)
 	{
 		tmp = *head;
 		*head = (*head)->next;
 		free(tmp);
-	}	
+	}
+	str = "List has been cleared";
+	write(1, str, ft_strlen(str));
 }
