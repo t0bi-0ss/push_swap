@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_list.c                                       :+:      :+:    :+:   */
+/*   print_node_value.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 15:58:45 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:53:47 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/29 19:02:19 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/29 19:08:14 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
+#include <stdio.h>
 
-void	clear_list(t_stack *stack)
+void print_node_value(t_stack *stack)
 {
-	t_list *current;
-	t_list *next;
-	char	*str;
+	t_list *tmp;
+	int		node_num;
 
-	if (!stack || !stack->head)
+	node_num = 1;
+	tmp = stack->head;
+	while (tmp != stack->tail)
 	{
-		str = "List could not be cleared: NULL stack or NULL list";
-		write(1, str, ft_strlen(str));
-		return ;
+		printf("node %i value is: %i\n", node_num, tmp->num);
+		node_num++;
+		tmp = tmp->next;
 	}
-	current = stack->head;
-	stack->head->prev->next = NULL;
-	while(current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	stack->head = NULL;
+	printf("node %i value is: %i\n", node_num, tmp->num);
 }

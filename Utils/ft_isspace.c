@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 09:49:22 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:17:09 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/29 16:44:56 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/29 16:45:31 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
-
-size_t	ft_strlen(const char *s)
+int	ft_isspace(unsigned char c)
 {
-	size_t	len;
-
-	len = 0;
-	while (*s)
-	{
-		len++;
-		s++;
-	}
-	return (len);
+	return ((c >= 9 && c <= 13) || c == 32);
 }

@@ -1,26 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 09:49:22 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:17:09 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/29 16:42:11 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/29 16:42:14 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
-
-size_t	ft_strlen(const char *s)
+int	ft_isdigit(int c)
 {
-	size_t	len;
-
-	len = 0;
-	while (*s)
-	{
-		len++;
-		s++;
-	}
-	return (len);
+	return (c >= '0' && c <= '9');
 }

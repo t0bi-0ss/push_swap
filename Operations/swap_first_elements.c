@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_list.c                                       :+:      :+:    :+:   */
+/*   swap_first_elements.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 15:58:45 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:53:47 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/28 15:00:15 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/28 16:33:04 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-void	clear_list(t_stack *stack)
+void	swap_first_elements(t_stack *stack)
 {
-	t_list *current;
-	t_list *next;
-	char	*str;
-
-	if (!stack || !stack->head)
+	t_list *tmp;
+	
+	if (!stack->head || !stack->head->next)
+		return ;
+	if (stack->size == 2)
 	{
-		str = "List could not be cleared: NULL stack or NULL list";
-		write(1, str, ft_strlen(str));
+		stack->head = stack->head->next;
 		return ;
 	}
-	current = stack->head;
-	stack->head->prev->next = NULL;
-	while(current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	stack->head = NULL;
+	tmp = stack->head->next; 
+	stack->head->prev->next = tmp; 
+	tmp->prev = stack->head->prev; 
+	stack->head->next = tmp->next; 
+	tmp->next->prev = stack->head; 
+	stack->head->prev = tmp; 
+	tmp->next = stack->head; 
+	stack->head = tmp; 
 }

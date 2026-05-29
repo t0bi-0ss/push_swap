@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_list.c                                       :+:      :+:    :+:   */
+/*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 15:58:45 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:53:47 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/25 09:26:03 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/29 18:26:30 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-void	clear_list(t_stack *stack)
+int	create_list(char **argv, t_stack *stack)
 {
-	t_list *current;
-	t_list *next;
-	char	*str;
+	t_list *new_node;
+	int num;
 
-	if (!stack || !stack->head)
+	new_node = NULL;
+	while (*argv)
 	{
-		str = "List could not be cleared: NULL stack or NULL list";
-		write(1, str, ft_strlen(str));
-		return ;
+		num = ft_atoi(*argv);
+		new_node = ft_new_node(num);
+		if (!new_node)
+		{
+			clear_list(stack);
+			return (0);
+		}
+		if (!(ft_insert_new_node(stack, new_node)))
+			return (0);
+		argv++;
 	}
-	current = stack->head;
-	stack->head->prev->next = NULL;
-	while(current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	stack->head = NULL;
+	return (1);
 }

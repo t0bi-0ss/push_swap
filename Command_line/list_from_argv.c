@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_list.c                                       :+:      :+:    :+:   */
+/*   list_from_argv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/27 15:58:45 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 11:53:47 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/05/29 17:45:08 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/05/29 18:56:35 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-void	clear_list(t_stack *stack)
+int	list_from_argv(char **argv, t_stack *stack)
 {
-	t_list *current;
-	t_list *next;
-	char	*str;
+	char **splitted;
 
-	if (!stack || !stack->head)
+	while (*argv)
 	{
-		str = "List could not be cleared: NULL stack or NULL list";
-		write(1, str, ft_strlen(str));
-		return ;
+		splitted = ft_split(*argv, ' ');
+		if(!create_list(splitted, stack))
+			return (0);
+		free(splitted);
+		argv++;
 	}
-	current = stack->head;
-	stack->head->prev->next = NULL;
-	while(current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	stack->head = NULL;
+	return (1);
 }

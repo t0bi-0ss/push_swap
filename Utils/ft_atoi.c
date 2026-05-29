@@ -6,14 +6,11 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 17:15:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/27 15:53:48 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:17:41 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(unsigned char c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
+#include "../ft_pushswap.h"
 
 static int	ft_issign(unsigned char c)
 {
