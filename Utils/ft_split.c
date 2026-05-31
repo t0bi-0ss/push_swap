@@ -12,7 +12,7 @@
 
 #include "../ft_pushswap.h"
 
-int static	ft_get_numof_strings(char const *src, char delimiter)
+static int	ft_get_numof_strings(char const *src, char delimiter)
 {
 	int	count;
 
@@ -42,7 +42,7 @@ int		chars_to_delimiter(const char *str, char delimiter)
 	return (count);
 }
 
-char static	**ft_create_array_of_strings(int strings_num, const char *str, char delimiter)
+static char	**ft_create_array_of_strings(int strings_num, const char *str, char delimiter)
 {
 	char	**arr;
 	int		index;

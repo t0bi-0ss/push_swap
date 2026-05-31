@@ -14,31 +14,20 @@
 
 void node_error(void)
 {
-	char	*str;
-
-	str = "Memory allocation failed when creating a new node\n";
-	write(1, str, ft_strlen(str));
+	ft_putstr("Memory allocation failed when creating a new node\n");
 }
 
 void not_all_digits_error(void)
 {
-	char	*str;
-	str = "Input does not contain digits excusively\n";
-	write (1, str, ft_strlen(str));
+	ft_putstr("Input does not contain digits excusively or they are not separated by 'spaces'\n");
 }
 
 void insert_node_fail(void)
 {
-	char *str;
-
-	str = "Node insertion has failed\n";
-	write(1, str, ft_strlen(str));
+	ft_putstr("Node insertion has failed\n");
 }
 
 void invalid_cmd_argument(void)
 {
-	char *str;
-
-	str = "Command line argument is invalid\n";
-	write(1, str, ft_strlen(str));
+	ft_putstr("Command line argument(s) is(are) invalid\n");
 }

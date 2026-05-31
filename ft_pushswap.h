@@ -48,6 +48,9 @@ size_t				ft_strlen(const char *s);
 int					ft_isdigit(int c);
 int					ft_isspace(unsigned char c);
 char				**ft_split(char const *s, char c);
+int ft_putstr(char *str);
+void    ft_putdisorder(float num, int precision);
+void ft_putnbr(int n);
 
 // List management
 
@@ -66,4 +69,9 @@ void				swap_first_elements(t_stack *stack);
 int					list_from_argv(char **argv, t_stack *stack);
 int					check_command_line(char **argv);
 
+// Stack management
+
+void    init_stack(t_stack *stack);
+float	calculate_disorder(t_stack *stack);
+int     repetition_found(t_stack *stack);
 #endif

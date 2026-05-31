@@ -12,6 +12,8 @@
 
 #include "../ft_pushswap.h"
 
+void	free_arr(char **arr);
+
 int	list_from_argv(char **argv, t_stack *stack)
 {
 	char **splitted;
@@ -21,8 +23,19 @@ int	list_from_argv(char **argv, t_stack *stack)
 		splitted = ft_split(*argv, ' ');
 		if(!create_list(splitted, stack))
 			return (0);
+		free_arr(splitted);
 		free(splitted);
+		splitted = NULL;
 		argv++;
 	}
 	return (1);
+}
+
+void	free_arr(char **arr)
+{
+	while (*arr)
+	{
+		free(*arr);
+		arr++;
+	}
 }

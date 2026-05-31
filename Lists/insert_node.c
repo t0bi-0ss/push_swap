@@ -14,13 +14,8 @@
 
 int	ft_insert_new_node(t_stack *stack, t_list *new_node)
 {
-	t_list	*tmp_head;
-	t_list	*tmp_prev;
-
 	if (!new_node || !stack)
 		return (insert_node_fail(), 0);
-	tmp_head = NULL;
-	tmp_prev = NULL;
 	if (!(stack)->head)
 	{
 		stack->head = new_node;
