@@ -8,10 +8,10 @@ void    ft_putdisorder(float disorder, int precision)
         int    num;
 
         if (precision == 0)
-                ft_putnbr((int) disorder);
+                ft_putnbr((int) (disorder * 100));
         else
         {
-                num = disorder * (power_of_ten(precision));
+                num = disorder * 100 * (power_of_ten(precision));
                 put_precision(num, precision);
         }
         write(1, "%", 1);

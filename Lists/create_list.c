@@ -11,17 +11,25 @@
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
+#include <limits.h>
+
+int	check_atol(long num);
 
 int	create_list(char **argv, t_stack *stack)
 {
 	t_list *new_node;
-	int num;
+	long	atol_val;
 
 	new_node = NULL;
 	while (*argv)
 	{
-		num = ft_atoi(*argv);
-		new_node = ft_new_node(num);
+		atol_val = ft_atol(*argv);
+		if (!check_atol(atol_val))
+		{
+			clear_list(stack);
+			return (0);
+		}
+		new_node = ft_new_node((int) atol_val);
 		if (!new_node)
 		{
 			clear_list(stack);
@@ -30,6 +38,21 @@ int	create_list(char **argv, t_stack *stack)
 		if (!(ft_insert_new_node(stack, new_node)))
 			return (0);
 		argv++;
+	}
+	return (1);
+}
+
+int	check_atol(long num)
+{
+	if (num > INT_MAX)
+	{
+		ft_putstr("Parameter is bigger than INT_MAX\n");
+		return (0);
+	}
+	if (num < INT_MIN)
+	{
+		ft_putstr("Parameter is smaller than INT_MIN\n");
+		return (0);
 	}
 	return (1);
 }

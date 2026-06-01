@@ -6,7 +6,7 @@ int	main(int argc, char **argv)
 {
 	if (argc < 2)
 	{
-		ft_putstr("No arguments were passed\n");
+		ft_putstr("Too few arguments were passed\n");
 		return (1);
 	}
 	int res = check_command_line(&argv[1]);
@@ -17,9 +17,10 @@ int	main(int argc, char **argv)
 	else
 		printf("Argument is valid\n");
 	t_stack stack_a;
-
+		
 	init_stack(&stack_a);
-	list_from_argv(&argv[1], &stack_a);
+	if(!list_from_argv(&argv[1], &stack_a))
+		return (1);
 	print_node_value(&stack_a);
 
 	// Stack elements

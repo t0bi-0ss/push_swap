@@ -12,19 +12,8 @@
 
 #include "../ft_pushswap.h"
 
-int	count_smaller_nums(t_list *node, t_list *head, int num)
-{
-	int	counter;
+int	count_smaller_nums(t_list *node, t_list *head, int num);
 
-	counter = 0;
-	while (node != head)
-	{
-		if (node->num < num)
-			counter++;
-		node = node->next;
-	}
-	return (counter);
-}
 
 float	calculate_disorder(t_stack *stack)
 {
@@ -39,6 +28,20 @@ float	calculate_disorder(t_stack *stack)
 		current = current->next;
 	}
 	total_pairs = stack->size * (stack->size - 1) / 2;
-	disorder = disorder * 100 / total_pairs;
+	disorder = disorder / total_pairs;
 	return (disorder);
+}
+
+int	count_smaller_nums(t_list *node, t_list *head, int num)
+{
+	int	counter;
+
+	counter = 0;
+	while (node != head)
+	{
+		if (node->num < num)
+			counter++;
+		node = node->next;
+	}
+	return (counter);
 }

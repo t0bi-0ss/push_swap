@@ -14,6 +14,7 @@
 # define FT_PUSHSWAP_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 // STRUCTS
 
@@ -32,18 +33,36 @@ typedef struct t_stack
 	int				size;
 }					t_stack;
 
+typedef struct t_ops
+{
+	char	*strategy;
+	int		total_operations;
+	int		sa;
+	int		sb;
+	int 	ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
+}				t_ops;
+
 // Error messages
 
 void				node_error(void);
 void				not_all_digits_error(void);
 void				insert_node_fail(void);
 void				invalid_cmd_argument(void);
+void error_message(void);
 
 // Checkers
 
 // Utils
 
-int					ft_atoi(const char *nptr);
+long					ft_atol(const char *nptr);
 size_t				ft_strlen(const char *s);
 int					ft_isdigit(int c);
 int					ft_isspace(unsigned char c);

@@ -22,7 +22,11 @@ int	list_from_argv(char **argv, t_stack *stack)
 	{
 		splitted = ft_split(*argv, ' ');
 		if(!create_list(splitted, stack))
+		{
+			free_arr(splitted);
+			free(splitted);
 			return (0);
+		}
 		free_arr(splitted);
 		free(splitted);
 		splitted = NULL;

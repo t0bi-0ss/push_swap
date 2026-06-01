@@ -12,15 +12,14 @@
 
 #include "../ft_pushswap.h"
 
-static int	ft_issign(unsigned char c)
-{
-	return (c == '-' || c == '+');
-}
+static int	ft_issign(unsigned char c);
 
-int	ft_atoi(const char *nptr)
+int	overflow_check(long *result, int digit, int sign);
+
+long	ft_atol(const char *nptr)
 {
 	int	sign;
-	int	result;
+	long	result;
 
 	sign = 1;
 	result = 0;
@@ -28,13 +27,36 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	if (ft_issign(*nptr))
 	{
-		if (ft_issign(*(nptr + 1)))
-			return (0);
-		else if (*nptr == '-')
+		if (*nptr == '-')
 			sign = -1;
 		nptr++;
 	}
 	while (ft_isdigit(*nptr))
-		result = result * 10 + (*nptr++ - '0');
+	{
+		if (overflow_check(&result, (*nptr - '0'), sign))
+			return (result);
+		result = result * 10 + (*nptr - '0');
+		nptr++;
+	}
 	return (result * sign);
+}
+
+int	overflow_check(long *result, int digit, int sign)
+{
+	if (*result * sign > (LONG_MAX - digit) / 10)
+	{
+		*result = LONG_MAX;
+		return (1);
+	}
+	if (*result * sign < (LONG_MIN + digit) / 10)
+	{
+		*result = LONG_MIN;
+		return (1);
+	}
+	return (0);
+}
+
+static int	ft_issign(unsigned char c)
+{
+	return (c == '-' || c == '+');
 }
