@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 19:02:19 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/29 19:08:14 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 16:04:58 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void print_node_value(t_stack *stack)
 	t_list *tmp;
 	int		node_num;
 
+	if (!stack->head)
+	{
+		printf("Stack's head is NULL\n");
+		return ;
+	}
 	node_num = 1;
 	tmp = stack->head;
 	while (tmp != stack->tail)

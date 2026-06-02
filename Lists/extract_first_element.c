@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_node.c                                      :+:      :+:    :+:   */
+/*   extract_first_element.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:30 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 14:20:24 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 14:35:34 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 14:41:34 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_add_back(t_stack *stack, t_list *new_node)
+t_list	*extract_first(t_stack *stack)
 {
-	if (!new_node || !stack)
-		return (insert_node_fail(), 0);
-	if (!(stack)->head)
+	t_list *extracted;
+
+	if (!stack->head)
+		return (NULL);
+	extracted = stack->head;
+	if (stack->size == 1)
 	{
-		stack->head = new_node;
-		stack->tail = new_node;
-		new_node->next = new_node;
-		new_node->prev = new_node;
+		stack->head = NULL;
+		extracted->next = NULL;
+		extracted->prev = NULL;
+		return (extracted);
 	}
-	else
-	{
-		new_node->prev = stack->tail;
-		new_node->next = stack->head;
-		stack->tail->next = new_node;
-		stack->head->prev = new_node;
-		stack->tail = new_node;
-	}
-	stack->size += 1;
-	return (1);
+	stack->head = extracted->next;
+	stack->head->prev = stack->tail;
+	stack->tail->next = stack->head;
+	extracted->next = NULL;
+	extracted->prev = NULL;
+	stack->size -= 1;
+	return (extracted);
 }

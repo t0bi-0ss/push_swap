@@ -11,8 +11,11 @@ int     repetition_found(t_stack *stack)
     while (current != stack->head)
     {
         if (is_repeated(stack->head, current, current->prev->num))
+		{
+			error_repetition_found();
             return (1);
-        current = current->next;
+		}
+			current = current->next;
     }
     return (0);
 }

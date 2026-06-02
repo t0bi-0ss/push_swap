@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:35:24 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/29 19:18:03 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 15:18:35 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ before a number it will invalid argv*/
 
 int	recursive_check(char *str);
 
-/*Returns 0 if argv is invalid*/
-int	check_command_line(char **argv)
+/*Returns 0 if argv contains anything different than a digit or if argc < 2*/
+int	check_command_line(char **argv, int argc)
 {
+	if (argc < 2)
+	{
+		ft_putstr("Not enough arguments were passed\n");
+		return (0);
+	}
 	if (!**argv)
 	{
 		invalid_cmd_argument();

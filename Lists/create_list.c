@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 09:26:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/29 18:26:30 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 14:20:24 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	create_list(char **argv, t_stack *stack)
 			clear_list(stack);
 			return (0);
 		}
-		if (!(ft_insert_new_node(stack, new_node)))
+		if (!(ft_add_back(stack, new_node)))
 			return (0);
 		argv++;
 	}

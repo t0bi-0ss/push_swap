@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_node.c                                      :+:      :+:    :+:   */
+/*   add_front.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:30 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 14:20:24 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 14:20:52 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 14:35:05 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_add_back(t_stack *stack, t_list *new_node)
+int	ft_add_front(t_stack *stack, t_list *new_node)
 {
 	if (!new_node || !stack)
 		return (insert_node_fail(), 0);
@@ -25,11 +25,11 @@ int	ft_add_back(t_stack *stack, t_list *new_node)
 	}
 	else
 	{
-		new_node->prev = stack->tail;
 		new_node->next = stack->head;
-		stack->tail->next = new_node;
+		new_node->prev = stack->head->prev;
 		stack->head->prev = new_node;
-		stack->tail = new_node;
+		stack->tail->next = new_node;
+		stack->head = new_node;
 	}
 	stack->size += 1;
 	return (1);

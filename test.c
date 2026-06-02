@@ -1,38 +1,29 @@
+#include "ft_pushswap.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "ft_pushswap.h"
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
-	{
-		ft_putstr("Too few arguments were passed\n");
+	if(!check_command_line(&argv[1], argc))
 		return (1);
-	}
-	int res = check_command_line(&argv[1]);
-	if (!res)
-	{
-		return (1);
-	}
-	else
-		printf("Argument is valid\n");
 	t_stack stack_a;
-		
-	init_stack(&stack_a);
-	if(!list_from_argv(&argv[1], &stack_a))
-		return (1);
-	print_node_value(&stack_a);
+	t_stack stack_b;
 
-	// Stack elements
-	stack_a.disorder = calculate_disorder(&stack_a);
-	ft_putstr("Stack a size: ");
-	ft_putnbr(stack_a.size);
-	ft_putstr("\n");
-	ft_putstr("Stack a disorder: ");
-	ft_putdisorder(stack_a.disorder, 2);
-	if (repetition_found(&stack_a))
-		ft_putstr("Repetition was found\n");
+	//Initialize stacks
+	init_stack(&stack_a, &stack_b);
+
+	//Create list from argv and check for repetition
+	if (!list_from_argv(&argv[1], &stack_a))
+		return (1);
+	
+	//Print initial values
+	test_initial_values(&stack_a);
+
+	// Operations
+	test_operations(&stack_a, &stack_b);
+
 	// Clear List
 	clear_list(&stack_a);
+	clear_list(&stack_b);
 	return (0);
 }
