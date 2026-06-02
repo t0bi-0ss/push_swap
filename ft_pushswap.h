@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 18:32:12 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 19:54:40 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ int					check_command_line(char **argv, int argc);
 void				init_stack(t_stack *stack_1, t_stack *stack_2);
 int				calculate_disorder(t_stack *stack);
 int					repetition_found(t_stack *stack);
+
+// Selection Sort
+
+int	look_for_max_position(t_stack *stack, int max);
+int	look_for_max(t_stack *stack);
 
 // Tests
 void	test_initial_values(t_stack *stack);

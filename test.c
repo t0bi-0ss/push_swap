@@ -12,7 +12,7 @@ int	main(int argc, char **argv)
 	//Initialize stacks
 	init_stack(&stack_a, &stack_b);
 
-	//Create list from argv and check for repetition
+	//Create list from argv and check for repetition, calculate disorder and list size at the end
 	if (!list_from_argv(&argv[1], &stack_a))
 		return (1);
 	
