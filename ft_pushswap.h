@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 15:53:31 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 18:32:12 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,10 @@ void				swap_first_elements(t_stack *stack);
 void				simultaneous_swap(t_stack *stack1, t_stack *stack2);
 void				push_element(t_stack *stack_to_push,
 						t_stack *stack_to_extract);
+void	rotate_elements(t_stack *stack);
+void	rotate_simultaneous(t_stack *stack_1, t_stack *stack_2);
+void	rotate_reverse(t_stack *stack);
+void	rotate_reverse_simultaneous(t_stack *stack_1, t_stack *stack_2);
 
 // Cmd management
 

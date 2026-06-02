@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simultaneous_swap.c                                :+:      :+:    :+:   */
+/*   rotate_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 16:34:57 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/28 16:37:12 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 18:26:36 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 18:41:18 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-void simultaneous_swap(t_stack *stack1, t_stack *stack2)
+/*Shift down all elements of passed stack by one*/
+void	rotate_reverse(t_stack *stack)
 {
-	swap_first_elements(stack1);
-	swap_first_elements(stack2);
+	stack->head = stack->tail;
+	stack->tail = stack->tail->prev;
 }

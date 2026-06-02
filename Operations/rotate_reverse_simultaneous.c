@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_element.c                                     :+:      :+:    :+:   */
+/*   rotate_reverse_simultaneous.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 16:37:59 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 18:39:10 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 18:28:30 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 18:41:13 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-/*Take the first element at the top of stack_to_extract and put it at the top of stack_to_push.*/
-void	push_element(t_stack *stack_to_push, t_stack *stack_to_extract)
+/*Shift down all elements of passed stacks by one*/
+void	rotate_reverse_simultaneous(t_stack *stack_1, t_stack *stack_2)
 {
-	t_list *extracted;
-	
-	if (!stack_to_extract->head)
-		return ;
-	extracted = extract_first(stack_to_extract);
-	ft_add_front(stack_to_push, extracted);
+	rotate_reverse(stack_1);
+	rotate_reverse(stack_2);
 }

@@ -6,12 +6,13 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 15:00:15 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 15:08:56 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/02 18:42:07 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
+/*Swap the first two elements at the top of passed stack*/
 void	swap_first_elements(t_stack *stack)
 {
 	t_list	*original_head;
