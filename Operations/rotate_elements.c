@@ -15,6 +15,8 @@
 /*Shift up all elements of passed stack by one*/
 void	rotate_elements(t_stack *stack)
 {
+	if (!stack->head || !stack->tail)
+		return ;
 	stack->tail = stack->head;
 	stack->head = stack->head->next;
 }

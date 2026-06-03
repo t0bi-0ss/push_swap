@@ -24,6 +24,7 @@ t_list	*extract_first(t_stack *stack)
 		stack->head = NULL;
 		extracted->next = NULL;
 		extracted->prev = NULL;
+		stack->size -= 1;
 		return (extracted);
 	}
 	stack->head = extracted->next;

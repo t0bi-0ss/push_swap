@@ -12,21 +12,23 @@
 
 #include "../../ft_pushswap.h"
 
-int	look_for_max_position(t_stack *stack, int max)
+int	look_for_min_position(t_stack *stack, int min)
 {
 	t_list *current;
 	int		position;
 
-	if (stack->head->num == max)
+	if (!stack->head)
+		return (-1);
+	if (stack->head->num == min)
 		return (0);
 	position = 1;
 	current = stack->head->next;
 	while (current != stack->head)
 	{
-		if (current->num == max)
+		if (current->num == min)
 			return (position);
 		current = current->next;
 		position++;
 	}
-	return (-1);
+	return (-2);
 }

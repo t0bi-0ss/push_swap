@@ -8,9 +8,13 @@ int	main(int argc, char **argv)
 		return (1);
 	t_stack stack_a;
 	t_stack stack_b;
+	t_ops ops;
 
 	//Initialize stacks
 	init_stack(&stack_a, &stack_b);
+
+	//Initialize ops
+	init_ops(&ops);
 
 	//Create list from argv and check for repetition, calculate disorder and list size at the end
 	if (!list_from_argv(&argv[1], &stack_a))
@@ -20,8 +24,16 @@ int	main(int argc, char **argv)
 	test_initial_values(&stack_a);
 
 	// Operations
-	test_operations(&stack_a, &stack_b);
+	//test_operations(&stack_a, &stack_b);
 
+	// Min position
+
+	//min_position(&stack_a);
+
+	test_selection_sort(&stack_a, &stack_b, &ops);
+
+	//Print ops elements
+	print_ops_elements(&ops);
 	// Clear List
 	clear_list(&stack_a);
 	clear_list(&stack_b);

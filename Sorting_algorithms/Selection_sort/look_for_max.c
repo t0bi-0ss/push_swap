@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   look_for_max.c                                     :+:      :+:    :+:   */
+/*   look_for_min.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,20 @@
 
 #include "../../ft_pushswap.h"
 
-int	look_for_max(t_stack *stack)
+int look_for_min(t_stack *stack)
 {
-	int	max_found;
+	int	min_found;
 	t_list *current;
 
-	max_found = stack->head->num;
+	if (!stack->head)
+		return (0);
+	min_found = stack->head->num;
 	current = stack->head->next;
 	while (current != stack->head)
 	{
-		if (current->num > max_found)
-			max_found = current->num;
+		if (current->num < min_found)
+			min_found = current->num;
 		current = current->next;
 	}
-	return (max_found);
+	return (min_found);
 }

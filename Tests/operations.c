@@ -2,6 +2,7 @@
 
 void	test_operations(t_stack *stack_a, t_stack *stack_b)
 {
+	ft_putstr("\n_____________________________________________________________");
 	ft_putstr("\n-------------------->Operations<--------------------\n");
 
 	//Push

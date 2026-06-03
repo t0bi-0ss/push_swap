@@ -70,6 +70,7 @@ char				**ft_split(char const *s, char c);
 int					ft_putstr(char *str);
 void				ft_putdisorder(float num, int precision);
 void				ft_putnbr(int n);
+void init_ops(t_ops *ops);
 
 // List management
 
@@ -105,10 +106,18 @@ int					repetition_found(t_stack *stack);
 
 // Selection Sort
 
-int	look_for_max_position(t_stack *stack, int max);
-int	look_for_max(t_stack *stack);
+int	look_for_min_position(t_stack *stack, int max);
+int	look_for_min(t_stack *stack);
+void push_min(t_stack *stack_to_push, t_stack *stack_to_extract, int min_position);
+void	push_all_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void    push_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Tests
+
 void	test_initial_values(t_stack *stack);
 void	test_operations(t_stack *stack_a, t_stack *stack_b);
+void    min_position(t_stack *stack);
+void    test_selection_sort(t_stack *stack_a, t_stack *stack_b, t_ops *t_ops);
+void    print_ops_elements(t_ops *ops);
+
 #endif

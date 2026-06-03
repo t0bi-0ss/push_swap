@@ -2,6 +2,7 @@
 
 void	test_initial_values(t_stack *stack)
 {
+	ft_putstr("\n_____________________________________________________________");
 	ft_putstr("\n-------------------->Stack 'a' initial values<--------------------\n\n");
 	print_node_value(stack);
 	ft_putstr("\nStack a size: ");

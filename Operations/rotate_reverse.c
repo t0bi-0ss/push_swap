@@ -15,6 +15,8 @@
 /*Shift down all elements of passed stack by one*/
 void	rotate_reverse(t_stack *stack)
 {
+	if (!stack->head || !stack->tail)
+		return ;
 	stack->head = stack->tail;
 	stack->tail = stack->tail->prev;
 }
