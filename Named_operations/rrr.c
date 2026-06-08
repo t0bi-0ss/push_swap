@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   look_for_min.c                                     :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 19:42:05 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 19:56:50 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 14:21:55 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:30:43 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_pushswap.h"
+#include "../ft_pushswap.h"
 
-int look_for_min(t_stack *stack)
+/*Shift down all elements of both stack a and stack b by one.*/
+void rrr(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	int	min_found;
-	t_list *current;
-
-	if (!stack->head)
-		return (0);
-	min_found = stack->head->num;
-	current = stack->head->next;
-	while (current != stack->head)
-	{
-		if (current->num < min_found)
-			min_found = current->num;
-		current = current->next;
-	}
-	return (min_found);
+	rotate_reverse(stack_a);
+	rotate_reverse(stack_b);
+	ft_putstr("rrr\n");
+	ops->rrr += 1;
+	ops->total_operations += 1;
 }

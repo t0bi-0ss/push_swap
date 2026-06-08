@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_all_to_b.c                                   :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 19:22:15 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 19:58:18 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 14:46:02 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:47:47 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-/*pushes all a's elements to b starting from smallest to largest*/
-void	push_all_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+void selection_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	int	min_position;
-
-	while (stack_a->size > 0)
-	{
-		min_position = look_for_min_position(stack_a, look_for_min(stack_a));
-		push_min(stack_a, stack_b, min_position, ops);
-	}
+	push_all_to_b(stack_a, stack_b, ops);
+	return_all_to_a(stack_a, stack_b, ops);
 }

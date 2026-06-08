@@ -1,22 +1,22 @@
 #include "../../ft_pushswap.h"
 
-/*Push node that contains lists minimum num found to a secondary one given its position*/
-void push_min(t_stack *stack_to_push, t_stack *stack_to_extract, int min_position)
+/*Push node that contains stack_a minimum num found to stack_b given its position*/
+void push_min(t_stack *stack_a, t_stack *stack_b, int min_position, t_ops *ops)
 {
-    if (min_position <= stack_to_extract->size / 2)
+    if (min_position <= stack_a->size / 2)
         while (min_position > 0)
         {
-            rotate_elements(stack_to_extract);
+			ra(stack_a, ops);
             min_position--;
         }
     else
     {
-        min_position = stack_to_extract->size - min_position;
+        min_position = stack_a->size - min_position;
         while (min_position > 0)
         {
-            rotate_reverse(stack_to_extract);
+            rra(stack_a, ops);
             min_position--;
         }    
     }
-    push_element(stack_to_push, stack_to_extract);
+    pb(stack_b, stack_a, ops);
 }

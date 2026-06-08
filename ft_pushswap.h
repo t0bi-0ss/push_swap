@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 19:54:40 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:09:50 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct t_stack
 typedef struct t_ops
 {
 	char			*strategy;
+	int				bench;
 	int				total_operations;
 	int				sa;
 	int				sb;
@@ -70,14 +71,15 @@ char				**ft_split(char const *s, char c);
 int					ft_putstr(char *str);
 void				ft_putdisorder(float num, int precision);
 void				ft_putnbr(int n);
-void init_ops(t_ops *ops);
+void				init_ops(t_ops *ops);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 // List management
 
 void				clear_list(t_stack *stack);
 t_list				*ft_new_node(int num);
 int					ft_add_back(t_stack *stack, t_list *new_node);
-int	ft_add_front(t_stack *stack, t_list *new_node);
+int					ft_add_front(t_stack *stack, t_list *new_node);
 int					create_list(char **argv, t_stack *stack);
 void				print_node_value(t_stack *stack);
 t_list				*extract_first(t_stack *stack);
@@ -85,13 +87,24 @@ t_list				*extract_first(t_stack *stack);
 // Operations
 
 void				swap_first_elements(t_stack *stack);
-void				simultaneous_swap(t_stack *stack1, t_stack *stack2);
 void				push_element(t_stack *stack_to_push,
 						t_stack *stack_to_extract);
-void	rotate_elements(t_stack *stack);
-void	rotate_simultaneous(t_stack *stack_1, t_stack *stack_2);
-void	rotate_reverse(t_stack *stack);
-void	rotate_reverse_simultaneous(t_stack *stack_1, t_stack *stack_2);
+void				rotate_elements(t_stack *stack);
+void				rotate_reverse(t_stack *stack);
+
+// Named operations
+
+void				sa(t_stack *stack_a, t_ops *ops);
+void				sb(t_stack *stack_b, t_ops *ops);
+void				ss(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				pa(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				pb(t_stack *stack_b, t_stack *stack_a, t_ops *ops);
+void				ra(t_stack *stack_a, t_ops *ops);
+void				rb(t_stack *stack_b, t_ops *ops);
+void				rr(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				rra(t_stack *stack_a, t_ops *ops);
+void				rrb(t_stack *stack_b, t_ops *ops);
+void				rrr(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Cmd management
 
@@ -101,23 +114,27 @@ int					check_command_line(char **argv, int argc);
 // Stack management
 
 void				init_stack(t_stack *stack_1, t_stack *stack_2);
-int				calculate_disorder(t_stack *stack);
+int					calculate_disorder(t_stack *stack);
 int					repetition_found(t_stack *stack);
 
 // Selection Sort
 
-int	look_for_min_position(t_stack *stack, int max);
-int	look_for_min(t_stack *stack);
-void push_min(t_stack *stack_to_push, t_stack *stack_to_extract, int min_position);
-void	push_all_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
-void    push_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+int					look_for_min_position(t_stack *stack, int min);
+int					look_for_min(t_stack *stack);
+void				push_min(t_stack *stack_a, t_stack *stack_b,
+						int min_position, t_ops *ops);
+void				push_all_to_b(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+void				return_all_to_a(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
 
 // Tests
 
-void	test_initial_values(t_stack *stack);
-void	test_operations(t_stack *stack_a, t_stack *stack_b);
-void    min_position(t_stack *stack);
-void    test_selection_sort(t_stack *stack_a, t_stack *stack_b, t_ops *t_ops);
-void    print_ops_elements(t_ops *ops);
+void				test_initial_values(t_stack *stack);
+void				test_operations(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				min_position(t_stack *stack);
+void				test_selection_sort(t_stack *stack_a, t_stack *stack_b,
+						t_ops *t_ops);
+void				print_ops_elements(t_ops *ops);
 
 #endif

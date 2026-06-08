@@ -6,52 +6,37 @@ void    print_ops_elements(t_ops *ops)
     ft_putstr("\n_____________________________________________________________");
 	ft_putstr("\n-------------------->Ops elements<--------------------\n\n");
     
-    ft_putstr("strategy: ");
-    ft_putstr("\n");
+    printf("strategy: \n");
 
-    ft_putstr("total_operations: ");
-    printf("%i", ops->total_operations);
-    ft_putstr("\n");
+    printf("total_operations: %i\n", ops->total_operations);
 
-    ft_putstr("sa: ");
+    printf("sa: %i\n", ops->sa);
     
-    ft_putstr("\n");
+    printf("sb: %i\n", ops->sb);
 
-    ft_putstr("sb: ");
 
-    ft_putstr("\n");
+    printf("ss: %i\n", ops->ss);
 
-    ft_putstr("ss: ");
 
-    ft_putstr("\n");
+    printf("pa: %i\n", ops->pa);
 
-    ft_putstr("pa: ");
-    printf("%i", ops->pa);
-    ft_putstr("\n");
+    printf("pb: %i\n", ops->pb);
 
-    ft_putstr("pb: ");
-    printf("%i", ops->pb);
-    ft_putstr("\n");
+    printf("ra: %i\n", ops->ra);
 
-    ft_putstr("ra: ");
 
-    ft_putstr("\n");
+    printf("rb: %i\n", ops->rb);
 
-    ft_putstr("rb: ");
 
-    ft_putstr("\n");
+    printf("rr: %i\n", ops->rr);
 
-    ft_putstr("rr: ");
 
-    ft_putstr("\n");
+    printf("rra: %i\n", ops->rra);
 
-    ft_putstr("rra: ");
 
-    ft_putstr("\n");
+    printf("rrb: %i\n", ops->rrb);
 
-    ft_putstr("rrb: ");
 
-    ft_putstr("\n");
+    printf("rrr: %i\n", ops->rrr);
 
-    ft_putstr("rrr: ");
 }

@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_simultaneous.c                                :+:      :+:    :+:   */
+/*   look_for_max_position.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/28 16:34:57 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 18:42:35 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 19:48:15 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:44:39 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-/*Swap the first two elements at the top of passed stacks*/
-void simultaneous_swap(t_stack *stack1, t_stack *stack2)
+int	look_for_min_position(t_stack *stack, int min)
 {
-	swap_first_elements(stack1);
-	swap_first_elements(stack2);
+	t_list *current;
+	int		position;
+
+	if (!stack->head)
+		return (-1);
+	if (stack->head->num == min)
+		return (0);
+	position = 1;
+	current = stack->head->next;
+	while (current != stack->head)
+	{
+		if (current->num == min)
+			return (position);
+		current = current->next;
+		position++;
+	}
+	return (-2);
 }

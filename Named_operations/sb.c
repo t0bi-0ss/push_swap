@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_reverse_simultaneous.c                      :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 18:28:30 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 18:41:13 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 14:02:17 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:30:49 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-/*Shift down all elements of passed stacks by one*/
-void	rotate_reverse_simultaneous(t_stack *stack_1, t_stack *stack_2)
+/*Swap the first two elements at the top of stack b.*/
+void sb(t_stack *stack_b, t_ops *ops)
 {
-	rotate_reverse(stack_1);
-	rotate_reverse(stack_2);
+	swap_first_elements(stack_b);
+	ft_putstr("sb\n");
+	ops->sb += 1;
+	ops->total_operations += 1;
 }

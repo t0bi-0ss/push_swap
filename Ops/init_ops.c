@@ -3,6 +3,7 @@
 void init_ops(t_ops *ops)
 {
     ops->strategy = NULL;
+	ops->bench = 0;
     ops->total_operations = 0;
     ops->sa = 0;
     ops->sb = 0;

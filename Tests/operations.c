@@ -1,6 +1,6 @@
 #include "../ft_pushswap.h"
 
-void	test_operations(t_stack *stack_a, t_stack *stack_b)
+void	test_operations(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
 	ft_putstr("\n_____________________________________________________________");
 	ft_putstr("\n-------------------->Operations<--------------------\n");
@@ -15,8 +15,8 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	ft_putstr("\nStack b values before push:\n\n");
 	print_node_value(stack_b);
 
-	push_element(stack_b, stack_a);
-	push_element(stack_b, stack_a);
+	pb(stack_b, stack_a, ops);
+	pb(stack_b, stack_a, ops);
 
 	ft_putstr("________________\n");
 	
@@ -31,14 +31,13 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	
 	ft_putstr("\nStack a values before swap:\n\n");
 	print_node_value(stack_a);
-	swap_first_elements(stack_a);
+	sa(stack_a, ops);
 	ft_putstr("\nStack a values after swap:\n\n");
 	print_node_value(stack_a);
 
-	swap_first_elements(stack_b);
 	ft_putstr("\nStack b values before swap:\n\n");
 	print_node_value(stack_b);
-	swap_first_elements(stack_b);
+	sb(stack_b, ops);
 	ft_putstr("\nStack b values after swap:\n\n");
 	print_node_value(stack_b);
 
@@ -52,7 +51,7 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	print_node_value(stack_b);
 	
 		//SS
-	simultaneous_swap(stack_a, stack_b);
+	ss(stack_a, stack_b, ops);
 
 	ft_putstr("\nStack a values after swap:\n\n");
 	print_node_value(stack_a);
@@ -70,8 +69,8 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	print_node_value(stack_b);
 
 		//ROTATE
-	rotate_elements(stack_a);
-	rotate_elements(stack_b);
+	ra(stack_a, ops);
+	rb(stack_b, ops);
 
 	ft_putstr("\nStack a values after rotation:\n\n");
 	print_node_value(stack_a);
@@ -89,7 +88,7 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	print_node_value(stack_b);
 
 		//SR
-	rotate_simultaneous(stack_a, stack_b);
+	rr(stack_a, stack_b, ops);
 
 	ft_putstr("\nStack a values after simultaneous rotation:\n\n");
 	print_node_value(stack_a);
@@ -107,8 +106,8 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	print_node_value(stack_b);
 
 		//REVERSE ROTATE
-	rotate_reverse(stack_a);
-	rotate_reverse(stack_b);
+	rra(stack_a, ops);
+	rrb(stack_b, ops);
 
 	ft_putstr("\nStack a values after reverse rotation:\n\n");
 	print_node_value(stack_a);
@@ -126,7 +125,7 @@ void	test_operations(t_stack *stack_a, t_stack *stack_b)
 	print_node_value(stack_b);
 
 		//SR
-	rotate_reverse_simultaneous(stack_a, stack_b);
+	rrr(stack_a, stack_b, ops);
 
 	ft_putstr("\nStack a values after reverse simultaneous rotation:\n\n");
 	print_node_value(stack_a);

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   look_for_max_location.c                            :+:      :+:    :+:   */
+/*   look_for_max.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 19:48:15 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 19:56:02 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 19:42:05 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:44:26 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-int	look_for_min_position(t_stack *stack, int min)
+int look_for_min(t_stack *stack)
 {
+	int	min_found;
 	t_list *current;
-	int		position;
 
 	if (!stack->head)
-		return (-1);
-	if (stack->head->num == min)
 		return (0);
-	position = 1;
+	min_found = stack->head->num;
 	current = stack->head->next;
 	while (current != stack->head)
 	{
-		if (current->num == min)
-			return (position);
+		if (current->num < min_found)
+			min_found = current->num;
 		current = current->next;
-		position++;
 	}
-	return (-2);
+	return (min_found);
 }

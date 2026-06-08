@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	test_initial_values(&stack_a);
 
 	// Operations
-	//test_operations(&stack_a, &stack_b);
+	//test_operations(&stack_a, &stack_b, &ops);
 
 	// Min position
 
@@ -34,6 +34,7 @@ int	main(int argc, char **argv)
 
 	//Print ops elements
 	print_ops_elements(&ops);
+
 	// Clear List
 	clear_list(&stack_a);
 	clear_list(&stack_b);

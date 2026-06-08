@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_simultaneous.c                              :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 18:21:12 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 18:41:02 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 13:57:30 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 14:30:27 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-/*Shift up all elements of passed stacks by one*/
-void	rotate_simultaneous(t_stack *stack_1, t_stack *stack_2)
+/*Take the first element at the top of a and put it at the top of b.*/
+void	pb(t_stack *stack_b, t_stack *stack_a, t_ops *ops)
 {
-	rotate_elements(stack_1);
-	rotate_elements(stack_2);
+	push_element(stack_b, stack_a);
+	ft_putstr("pb\n");
+	ops->pb += 1;
+	ops->total_operations += 1;
 }

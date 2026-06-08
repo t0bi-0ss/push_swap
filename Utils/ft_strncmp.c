@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_all_to_b.c                                   :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 19:22:15 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 19:58:18 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/04/21 16:08:03 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 13:51:05 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_pushswap.h"
+#include "../ft_pushswap.h"
 
-/*pushes all a's elements to b starting from smallest to largest*/
-void	push_all_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	min_position;
+	size_t			index;
+	unsigned char	*u_s1;
+	unsigned char	*u_s2;
 
-	while (stack_a->size > 0)
+	u_s1 = (unsigned char *)s1;
+	u_s2 = (unsigned char *)s2;
+	index = 0;
+	if (!n)
+		return (0);
+	while (index < n && (u_s1[index] || u_s2[index]))
 	{
-		min_position = look_for_min_position(stack_a, look_for_min(stack_a));
-		push_min(stack_a, stack_b, min_position, ops);
+		if (u_s1[index] != u_s2[index])
+			return (u_s1[index] - u_s2[index]);
+		index++;
 	}
+	return (0);
 }
