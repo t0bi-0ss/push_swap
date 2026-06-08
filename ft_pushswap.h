@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 15:09:50 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/08 21:02:51 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct t_list
 	int				num;
 	struct t_list	*next;
 	struct t_list	*prev;
+	int				index;
 }					t_list;
 
 typedef struct t_stack
@@ -73,6 +74,7 @@ void				ft_putdisorder(float num, int precision);
 void				ft_putnbr(int n);
 void				init_ops(t_ops *ops);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_sqrt(int num);
 
 // List management
 
@@ -128,13 +130,30 @@ void				push_all_to_b(t_stack *stack_a, t_stack *stack_b,
 void				return_all_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 
+// Chunk sort
+
+t_list				*get_minimum_node(t_stack *stack_a);
+void				assign_index(t_stack *stack_a);
+int					get_chunks_size(t_stack *stack_a);
+int					get_chunks_number(t_stack *stack_a);
+int					look_for_max(t_stack *stack);
+int					look_for_max_position(t_stack *stack, int min);
+void				push_all_to_a(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+void				push_max(t_stack *stack_a, t_stack *stack_b,
+						int max_position, t_ops *ops);
+void				chunks_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+
 // Tests
 
 void				test_initial_values(t_stack *stack);
-void				test_operations(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				test_operations(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
 void				min_position(t_stack *stack);
 void				test_selection_sort(t_stack *stack_a, t_stack *stack_b,
 						t_ops *t_ops);
 void				print_ops_elements(t_ops *ops);
+void    test_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 #endif

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   look_for_max.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:44 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 18:44:23 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 19:42:05 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 20:44:40 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-t_list	*ft_new_node(int num)
+int look_for_max(t_stack *stack)
 {
-	t_list	*new_node;
+	int	max_found;
+	t_list *current;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (node_error(), NULL);
-	new_node->num = num;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->index = 0;
-	return (new_node);
+	if (!stack->head)
+		return (0);
+	max_found = stack->head->num;
+	current = stack->head->next;
+	while (current != stack->head)
+	{
+		if (current->num > max_found)
+			max_found = current->num;
+		current = current->next;
+	}
+	return (max_found);
 }

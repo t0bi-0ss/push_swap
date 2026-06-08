@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   push_all_to_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:44 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 18:44:23 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 19:22:15 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 19:58:18 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-t_list	*ft_new_node(int num)
+/*pushes all b's elements to a starting from largest to smallest*/
+void	push_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	t_list	*new_node;
+	int	max_position;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (node_error(), NULL);
-	new_node->num = num;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->index = 0;
-	return (new_node);
+	while (stack_b->size > 0)
+	{
+		max_position = look_for_max_position(stack_b, look_for_max(stack_b));
+		push_max(stack_a, stack_b, max_position, ops);
+	}
 }

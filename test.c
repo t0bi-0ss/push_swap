@@ -30,8 +30,11 @@ int	main(int argc, char **argv)
 
 	//min_position(&stack_a);
 
-	test_selection_sort(&stack_a, &stack_b, &ops);
+	// Selection Sort
+	//test_selection_sort(&stack_a, &stack_b, &ops);
 
+	// Chunk Sort
+	test_chunk_sort(&stack_a, &stack_b, &ops);
 	//Print ops elements
 	print_ops_elements(&ops);
 

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   chunk_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:44 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 18:44:23 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 20:52:40 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 20:58:46 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-t_list	*ft_new_node(int num)
+void	chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	t_list	*new_node;
-
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (node_error(), NULL);
-	new_node->num = num;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->index = 0;
-	return (new_node);
+	if (!stack_a || !stack_b || !ops || !stack_a->head)
+		return ;
+	chunks_to_b(stack_a, stack_b, ops);
+	push_all_to_a(stack_a, stack_b, ops);
 }

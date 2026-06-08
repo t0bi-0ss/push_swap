@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   get_chunks_number.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:44 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 18:44:23 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 19:05:33 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 21:06:04 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-t_list	*ft_new_node(int num)
+/*Calculates number of chunks*/
+int	get_chunks_number(t_stack *stack_a)
 {
-	t_list	*new_node;
+	int chunks_size;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (node_error(), NULL);
-	new_node->num = num;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->index = 0;
-	return (new_node);
+	if (!stack_a || !stack_a->size)
+		return (0);
+	chunks_size = get_chunks_size(stack_a);
+	if (stack_a->size % chunks_size > 0)
+		return (stack_a->size / chunks_size + 1);
+	return (stack_a->size / chunks_size);
 }

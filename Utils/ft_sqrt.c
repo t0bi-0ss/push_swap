@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_node_value.c                                 :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 19:02:19 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 21:13:06 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/08 19:13:26 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/08 19:22:42 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
-#include <stdio.h>
 
-void print_node_value(t_stack *stack)
+/*Calculate most aproximate square root*/
+int	ft_sqrt(int	num)
 {
-	t_list *tmp;
-	int		node_num;
+	int root;
 
-	if (!stack->head)
+	if (!num)
+		return (0);
+	root = 1;
+	while (root <= num/2)
 	{
-		printf("Stack's head is NULL\n");
-		return ;
+		if (root *root == num)
+			break ;
+		if (root * root > num)
+			return (root - 1);
+		root++;
 	}
-	node_num = 1;
-	tmp = stack->head;
-	while (tmp != stack->tail)
-	{
-		printf("NODE %i\n\tvalue is: %i\n\tindex is: %i\n", node_num, tmp->num, tmp->index);
-		node_num++;
-		tmp = tmp->next;
-	}
-	printf("NODE %i\n\tvalue is: %i\n\tindex is: %i\n", node_num, tmp->num, tmp->index);
+	return (root);
 }
