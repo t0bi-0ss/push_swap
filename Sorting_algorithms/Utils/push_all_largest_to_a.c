@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*   push_all_to_b.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 20:52:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/09 20:19:11 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/02 19:22:15 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/02 19:58:18 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-void	chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+/*pushes all b's elements to a from largest to smallest number found*/
+void	push_all_largest_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	if (!stack_a || !stack_b || !ops || !stack_a->head)
-		return ;
-	chunks_to_b(stack_a, stack_b, ops);
-	push_all_largest_to_a(stack_a, stack_b, ops);
+	int	max_position;
+
+	while (stack_b->size > 0)
+	{
+		max_position = look_for_max_position(stack_b, look_for_max(stack_b));
+		push_max(stack_a, stack_b, max_position, ops);
+	}
 }

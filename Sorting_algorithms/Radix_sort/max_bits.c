@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   chunk_sort.c                                       :+:      :+:    :+:   */
+/*   max_bits.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 20:52:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/09 20:19:11 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/09 20:02:52 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/09 20:07:34 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-void	chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+int	max_bits(int size)
 {
-	if (!stack_a || !stack_b || !ops || !stack_a->head)
-		return ;
-	chunks_to_b(stack_a, stack_b, ops);
-	push_all_largest_to_a(stack_a, stack_b, ops);
+	int counter;
+
+	counter = 0;
+	while (size)
+	{
+		size = size >> 1;
+		counter++;
+	}
+	return (counter);
 }

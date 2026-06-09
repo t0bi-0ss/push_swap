@@ -31,12 +31,20 @@ int	main(int argc, char **argv)
 	//min_position(&stack_a);
 
 	// Selection Sort
-	//test_selection_sort(&stack_a, &stack_b, &ops);
+	test_selection_sort(&stack_a, &stack_b, &ops);
 
 	// Chunk Sort
-	test_chunk_sort(&stack_a, &stack_b, &ops);
+	//test_chunk_sort(&stack_a, &stack_b, &ops);
+
+	// Radix Sort 
+	//test_radix_sort(&stack_a, &stack_b, &ops);
+
 	//Print ops elements
 	print_ops_elements(&ops);
+
+	calculate_disorder(&stack_a);
+	ft_putstr("\n______________STACK 'A' DISORDER AFTER SORT______________\n\n");
+	ft_putdisorder(stack_a.disorder, 2);
 
 	// Clear List
 	clear_list(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 21:02:51 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/09 20:22:40 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,12 +138,22 @@ int					get_chunks_size(t_stack *stack_a);
 int					get_chunks_number(t_stack *stack_a);
 int					look_for_max(t_stack *stack);
 int					look_for_max_position(t_stack *stack, int min);
-void				push_all_to_a(t_stack *stack_a, t_stack *stack_b,
+void				push_all_largest_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 void				push_max(t_stack *stack_a, t_stack *stack_b,
 						int max_position, t_ops *ops);
 void				chunks_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 void				chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+
+// Radix sort
+
+void				bit_set_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops,
+						int index);
+int					max_bits(int size);
+void				radix_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+
+// Sort utils
+void push_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Tests
 
@@ -154,6 +164,9 @@ void				min_position(t_stack *stack);
 void				test_selection_sort(t_stack *stack_a, t_stack *stack_b,
 						t_ops *t_ops);
 void				print_ops_elements(t_ops *ops);
-void    test_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				test_chunk_sort(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+void				test_radix_sort(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
 
 #endif

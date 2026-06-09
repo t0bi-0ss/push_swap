@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 21:00:00 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 21:02:40 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/09 20:19:11 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    test_chunk_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 
     // Push all elements to stack b
     ft_putstr("\n______________PUSH ELEMENTS TO STACK 'A'______________\n");
-    push_all_to_a(stack_a, stack_b, ops);
+    push_all_largest_to_a(stack_a, stack_b, ops);
     ft_putstr("\nStack a values after push all to 'a':\n\n");
 	print_node_value(stack_a);
 	ft_putstr("\nStack b values after push all to 'a':\n\n");
