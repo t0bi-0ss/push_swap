@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 17:15:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/29 17:17:41 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:57:50 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ static int	ft_issign(unsigned char c);
 
 int	overflow_check(long *result, int digit, int sign);
 
+/*Converts initial part of the string to a long integer while checking for overflows*/
 long	ft_atol(const char *nptr)
 {
 	int	sign;

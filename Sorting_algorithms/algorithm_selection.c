@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_node.c                                      :+:      :+:    :+:   */
+/*   algorithm_selection.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:30 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:53:40 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/10 16:41:26 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/10 17:23:33 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_add_back(t_stack *stack, t_list *new_node)
+void	algorithm_selection(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	if (!new_node || !stack)
-		return (0);
-	if (!(stack)->head)
-	{
-		stack->head = new_node;
-		stack->tail = new_node;
-		new_node->next = new_node;
-		new_node->prev = new_node;
-	}
+	if (ops->strategy == 1 || (stack_a->disorder < 0.2 && ops->strategy == 0))
+		selection_sort(stack_a, stack_b, ops);
+	else if (ops->strategy == 2 || ((stack_a->disorder <= 0.2
+				&& stack_a->disorder < 0.5) && ops->strategy == 0))
+		chunk_sort(stack_a, stack_b, ops);
 	else
-	{
-		new_node->prev = stack->tail;
-		new_node->next = stack->head;
-		stack->tail->next = new_node;
-		stack->head->prev = new_node;
-		stack->tail = new_node;
-	}
-	stack->size += 1;
-	return (1);
+		radix_sort(stack_a, stack_b, ops);
 }

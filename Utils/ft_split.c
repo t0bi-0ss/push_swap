@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 11:56:52 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/29 18:14:27 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 20:02:15 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,8 @@ char	**ft_split(char const *s, char c)
 	int		numof_strings;
 	char	**arr;
 
+	if (!s)
+		return (NULL);
 	numof_strings = ft_get_numof_strings(s, c);
 	arr = ft_create_array_of_strings(numof_strings, s, c);
 	if (!arr)

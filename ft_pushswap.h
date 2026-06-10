@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/09 20:22:40 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 20:10:01 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct t_stack
 
 typedef struct t_ops
 {
-	char			*strategy;
+	int				strategy;
 	int				bench;
 	int				total_operations;
 	int				sa;
@@ -72,9 +72,11 @@ char				**ft_split(char const *s, char c);
 int					ft_putstr(char *str);
 void				ft_putdisorder(float num, int precision);
 void				ft_putnbr(int n);
-void				init_ops(t_ops *ops);
+int				init_ops(t_ops *ops);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_sqrt(int num);
+int				init_structs(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
 
 // List management
 
@@ -85,6 +87,7 @@ int					ft_add_front(t_stack *stack, t_list *new_node);
 int					create_list(char **argv, t_stack *stack);
 void				print_node_value(t_stack *stack);
 t_list				*extract_first(t_stack *stack);
+void	clear_lists(t_stack *stack_a, t_stack *stack_b);
 
 // Operations
 
@@ -115,7 +118,7 @@ int					check_command_line(char **argv, int argc);
 
 // Stack management
 
-void				init_stack(t_stack *stack_1, t_stack *stack_2);
+int				init_stack(t_stack *stack_1, t_stack *stack_2);
 int					calculate_disorder(t_stack *stack);
 int					repetition_found(t_stack *stack);
 
@@ -153,7 +156,13 @@ int					max_bits(int size);
 void				radix_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Sort utils
-void push_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+
+void				push_all_to_a(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+
+// Algorithm selection
+
+void	algorithm_selection(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Tests
 

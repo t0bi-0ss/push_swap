@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 09:26:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 14:20:24 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:59:42 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	check_atol(long num);
 
+/*Creates linked list from input while checking for overflows*/
 int	create_list(char **argv, t_stack *stack)
 {
 	t_list *new_node;
@@ -42,17 +43,10 @@ int	create_list(char **argv, t_stack *stack)
 	return (1);
 }
 
+/*Checks if returned value by atol would cause an int overflow*/
 int	check_atol(long num)
 {
-	if (num > INT_MAX)
-	{
-		ft_putstr("Parameter is bigger than INT_MAX\n");
+	if (num > INT_MAX || num < INT_MIN)
 		return (0);
-	}
-	if (num < INT_MIN)
-	{
-		ft_putstr("Parameter is smaller than INT_MIN\n");
-		return (0);
-	}
 	return (1);
 }

@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert_node.c                                      :+:      :+:    :+:   */
+/*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:30 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:53:40 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/10 15:57:21 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/10 20:15:10 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_add_back(t_stack *stack, t_list *new_node)
+int	init_structs(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	if (!new_node || !stack)
+	if (!init_ops(ops) || !init_stack(stack_a, stack_b))
 		return (0);
-	if (!(stack)->head)
-	{
-		stack->head = new_node;
-		stack->tail = new_node;
-		new_node->next = new_node;
-		new_node->prev = new_node;
-	}
-	else
-	{
-		new_node->prev = stack->tail;
-		new_node->next = stack->head;
-		stack->tail->next = new_node;
-		stack->head->prev = new_node;
-		stack->tail = new_node;
-	}
-	stack->size += 1;
 	return (1);
 }
+

@@ -1,8 +1,10 @@
 #include "../ft_pushswap.h"
 
-void init_ops(t_ops *ops)
+int init_ops(t_ops *ops)
 {
-    ops->strategy = NULL;
+	if (!ops)
+		return (0);
+    ops->strategy = 0;
 	ops->bench = 0;
     ops->total_operations = 0;
     ops->sa = 0;
@@ -16,4 +18,5 @@ void init_ops(t_ops *ops)
     ops->rra = 0;
     ops->rrb = 0;
     ops->rrr = 0;
+	return (1);
 }

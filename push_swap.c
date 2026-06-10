@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                         :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/29 18:24:44 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:52:56 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/10 16:30:18 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/10 20:11:21 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "ft_pushswap.h"
 
-t_list	*ft_new_node(int num)
+int	push_swap(int argc, char **argv)
 {
-	t_list	*new_node;
+	t_stack	stack_a;
+	t_stack	stack_b;
+	t_ops	ops;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->num = num;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-	new_node->index = 0;
-	return (new_node);
+	if (!check_command_line(&argv[1], argc))
+		return (1);
+	if (!init_structs(&stack_a, &stack_b, &ops) || !list_from_argv(&argv[1],
+			&stack_a))
+	{
+		error_message();
+		return (1);
+	}
+	algorithm_selection(&stack_a, &stack_b, &ops);
+	clear_lists(&stack_a, &stack_b);
+	return (0);
 }

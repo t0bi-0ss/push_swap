@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/28 11:57:11 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 15:40:02 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/10 19:49:38 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	calculate_disorder(t_stack *stack)
 	int		total_pairs;
 
 	if (!stack->head)
-		return (0);
+		return (-1);
 	disorder = 0;
 	current = stack->head->next;
 	while (current != stack->head)
