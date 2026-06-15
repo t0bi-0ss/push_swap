@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_from_argv.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 17:45:08 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 19:55:54 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 20:14:09 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,7 @@ int	list_from_argv(char **argv, t_stack *stack_a, t_ops *ops)
 		free_arr(&splitted);
 		argv++;
 	}
-	if (calculate_disorder(stack_a) < 0)
-		return (0);
+	calculate_disorder(stack_a);
 	return (1);
 }
 
