@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   look_for_max.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:42:05 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 20:44:40 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:54:03 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-int look_for_max(t_stack *stack)
+int	look_for_max(t_stack *stack)
 {
-	int	max_found;
-	t_list *current;
+	int		max_found;
+	t_list	*current;
 
 	if (!stack->head)
 		return (0);

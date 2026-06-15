@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushswap.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 20:10:01 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:55:21 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct t_ops
 {
 	int				strategy;
 	int				bench;
+	int				adaptative;
 	int				total_operations;
 	int				sa;
 	int				sb;
@@ -52,16 +53,6 @@ typedef struct t_ops
 	int				rrr;
 }					t_ops;
 
-// Error messages
-
-void				node_error(void);
-void				not_all_digits_error(void);
-void				insert_node_fail(void);
-void				invalid_cmd_argument(void);
-void				error_message(void);
-void				fail_clear_list(void);
-void				error_repetition_found(void);
-
 // Utils
 
 long				ft_atol(const char *nptr);
@@ -72,11 +63,17 @@ char				**ft_split(char const *s, char c);
 int					ft_putstr(char *str);
 void				ft_putdisorder(float num, int precision);
 void				ft_putnbr(int n);
-int				init_ops(t_ops *ops);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 int					ft_sqrt(int num);
-int				init_structs(t_stack *stack_a, t_stack *stack_b,
+int					init_ops(t_ops *ops);
+int					init_structs(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
+int					init_stack(t_stack *stack_1, t_stack *stack_2);
+void				error_message(void);
+int					get_flag(char *str);
+int					apply_flag(int flag, t_ops *ops);
+void				print_bench(t_ops *ops, t_stack *stack);
+int					ft_putstr_stderr(char *str);
 
 // List management
 
@@ -85,9 +82,8 @@ t_list				*ft_new_node(int num);
 int					ft_add_back(t_stack *stack, t_list *new_node);
 int					ft_add_front(t_stack *stack, t_list *new_node);
 int					create_list(char **argv, t_stack *stack);
-void				print_node_value(t_stack *stack);
 t_list				*extract_first(t_stack *stack);
-void	clear_lists(t_stack *stack_a, t_stack *stack_b);
+void				clear_lists(t_stack *stack_a, t_stack *stack_b);
 
 // Operations
 
@@ -113,12 +109,11 @@ void				rrr(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
 
 // Cmd management
 
-int					list_from_argv(char **argv, t_stack *stack);
+int					list_from_argv(char **argv, t_stack *stack, t_ops *ops);
 int					check_command_line(char **argv, int argc);
 
 // Stack management
 
-int				init_stack(t_stack *stack_1, t_stack *stack_2);
 int					calculate_disorder(t_stack *stack);
 int					repetition_found(t_stack *stack);
 
@@ -132,17 +127,14 @@ void				push_all_to_b(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 void				return_all_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
+void				selection_sort(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
 
 // Chunk sort
 
-t_list				*get_minimum_node(t_stack *stack_a);
-void				assign_index(t_stack *stack_a);
 int					get_chunks_size(t_stack *stack_a);
 int					get_chunks_number(t_stack *stack_a);
-int					look_for_max(t_stack *stack);
 int					look_for_max_position(t_stack *stack, int min);
-void				push_all_largest_to_a(t_stack *stack_a, t_stack *stack_b,
-						t_ops *ops);
 void				push_max(t_stack *stack_a, t_stack *stack_b,
 						int max_position, t_ops *ops);
 void				chunks_to_b(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
@@ -154,28 +146,21 @@ void				bit_set_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops,
 						int index);
 int					max_bits(int size);
 void				radix_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+int					still_bit_zero(t_stack *stack_a, int bit_index);
 
 // Sort utils
 
+void				push_all_largest_to_a(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+int					look_for_max(t_stack *stack);
+t_list				*get_minimum_node(t_stack *stack_a);
+void				assign_index(t_stack *stack_a);
 void				push_all_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 
 // Algorithm selection
 
-void	algorithm_selection(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
-
-// Tests
-
-void				test_initial_values(t_stack *stack);
-void				test_operations(t_stack *stack_a, t_stack *stack_b,
-						t_ops *ops);
-void				min_position(t_stack *stack);
-void				test_selection_sort(t_stack *stack_a, t_stack *stack_b,
-						t_ops *t_ops);
-void				print_ops_elements(t_ops *ops);
-void				test_chunk_sort(t_stack *stack_a, t_stack *stack_b,
-						t_ops *ops);
-void				test_radix_sort(t_stack *stack_a, t_stack *stack_b,
+void				algorithm_selection(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
 
 #endif

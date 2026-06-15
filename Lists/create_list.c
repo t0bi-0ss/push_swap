@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/25 09:26:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:59:42 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:52:12 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	check_atol(long num);
 /*Creates linked list from input while checking for overflows*/
 int	create_list(char **argv, t_stack *stack)
 {
-	t_list *new_node;
+	t_list	*new_node;
 	long	atol_val;
 
 	new_node = NULL;
@@ -30,7 +30,7 @@ int	create_list(char **argv, t_stack *stack)
 			clear_list(stack);
 			return (0);
 		}
-		new_node = ft_new_node((int) atol_val);
+		new_node = ft_new_node((int)atol_val);
 		if (!new_node)
 		{
 			clear_list(stack);

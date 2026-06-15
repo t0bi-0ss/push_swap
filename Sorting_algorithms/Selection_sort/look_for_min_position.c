@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   look_for_max_position.c                            :+:      :+:    :+:   */
+/*   look_for_min_position.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:48:15 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 14:44:39 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:53:24 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	look_for_min_position(t_stack *stack, int min)
 {
-	t_list *current;
+	t_list	*current;
 	int		position;
 
 	if (!stack->head)

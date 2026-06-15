@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_front.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 14:20:52 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 14:35:05 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:52:07 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_add_front(t_stack *stack, t_list *new_node)
 {
 	if (!new_node || !stack)
-		return (insert_node_fail(), 0);
+		return (0);
 	if (!(stack)->head)
 	{
 		stack->head = new_node;

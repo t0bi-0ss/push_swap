@@ -2,9 +2,11 @@
 
 void    test_selection_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-    ft_putstr("\n_____________________________________________________________\n");
+	ft_putstr("\n_____________________________________________________________\n");
     ft_putstr("-------------------->Selection sort test<--------------------\n\n");
-
+	
+	if (stack_a->disorder == 0)
+		return ;
     // Push all elements to stack b
     ft_putstr("\n______________PUSH ELEMENTS TO STACK 'B'______________\n");
     push_all_to_b(stack_a, stack_b, ops);

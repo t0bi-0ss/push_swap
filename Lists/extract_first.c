@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_first_element.c                            :+:      :+:    :+:   */
+/*   extract_first.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 14:35:34 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/02 14:41:34 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:52:15 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*extract_first(t_stack *stack)
 {
-	t_list *extracted;
+	t_list	*extracted;
 
 	if (!stack->head)
 		return (NULL);

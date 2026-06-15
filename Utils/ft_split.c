@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 11:56:52 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 20:02:15 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:55:01 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,21 @@ static int	ft_get_numof_strings(char const *src, char delimiter)
 	}
 	return (count);
 }
-int		chars_to_delimiter(const char *str, char delimiter)
+
+int	chars_to_delimiter(const char *str, char delimiter)
 {
 	int	count;
 
 	count = 0;
-	while(*str == delimiter && *str)
+	while (*str == delimiter && *str)
 		str++;
 	while (*str != delimiter && *str++)
 		count++;
 	return (count);
 }
 
-static char	**ft_create_array_of_strings(int strings_num, const char *str, char delimiter)
+static char	**ft_create_array_of_strings(int strings_num, const char *str,
+		char delimiter)
 {
 	char	**arr;
 	int		index;
@@ -64,8 +66,8 @@ static char	**ft_create_array_of_strings(int strings_num, const char *str, char 
 			return (NULL);
 		}
 		index++;
-		while (*str++ == delimiter);
-		str += curr_str_len;
+		while (*str++ == delimiter)
+			str += curr_str_len;
 	}
 	arr[index] = NULL;
 	return (arr);

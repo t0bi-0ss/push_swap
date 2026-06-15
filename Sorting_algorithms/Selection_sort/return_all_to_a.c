@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   return_all_to_a.c                                    :+:      :+:    :+:   */
+/*   return_all_to_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/08 14:33:35 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 14:33:36 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/10 20:39:19 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/14 17:53:49 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-void    return_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+void	return_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-    while (stack_b->size > 0)
-        pa(stack_a, stack_b, ops);
+	while (stack_b->size > 0)
+		pa(stack_a, stack_b, ops);
 }

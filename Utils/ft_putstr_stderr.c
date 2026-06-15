@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   three_elements_case.c                              :+:      :+:    :+:   */
+/*   ft_putstr_stderr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:57:06 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 17:01:09 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/10 20:42:58 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/14 17:54:56 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_pushswap.h"
+#include "../ft_pushswap.h"
 
-void	three_elements_case(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
+int	ft_putstr_stderr(char *str)
 {
-	
+	if (!str)
+		return (0);
+	return (write(2, str, ft_strlen(str)));
 }

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   look_for_max.c                                     :+:      :+:    :+:   */
+/*   look_for_min.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:42:05 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/08 14:44:26 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:53:43 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../ft_pushswap.h"
 
-int look_for_min(t_stack *stack)
+int	look_for_min(t_stack *stack)
 {
-	int	min_found;
-	t_list *current;
+	int		min_found;
+	t_list	*current;
 
 	if (!stack->head)
 		return (0);

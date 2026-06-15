@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 17:15:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 19:57:50 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:54:44 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 static int	ft_issign(unsigned char c);
 
-int	overflow_check(long *result, int digit, int sign);
+int			overflow_check(long *result, int digit, int sign);
 
-/*Converts initial part of the string to a long integer while checking for overflows*/
+/*Converts initial part of the string to a long
+integer while checking for overflows*/
 long	ft_atol(const char *nptr)
 {
-	int	sign;
+	int		sign;
 	long	result;
 
 	sign = 1;

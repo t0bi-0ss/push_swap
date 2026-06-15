@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_structs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 15:57:21 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 20:15:10 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 17:55:13 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ int	init_structs(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 		return (0);
 	return (1);
 }
-

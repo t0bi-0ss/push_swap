@@ -3,17 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   check_for_invalid_input.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:35:24 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/10 20:05:29 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/14 20:00:53 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*Will parse all strings in argv checking if they only contain digits or signs,
-	and in case of multiple numbers
-in the same string it will check they are only separated by spaces. In addition if 2 or more signs are found
-before a number it will invalid argv*/
 
 #include "../ft_pushswap.h"
 
@@ -22,14 +17,16 @@ int	recursive_check(char *str);
 /*Returns 0 if argv contains anything different than a digit or if argc < 2*/
 int	check_command_line(char **argv, int argc)
 {
-	if (argc < 2 || !argv)
+	if (argc == 1)
+		return (0);
+	if (!argv)
 	{
 		error_message();
 		return (0);
 	}
 	while (*argv)
 	{
-		if (!recursive_check(*argv))
+		if (!get_flag(*argv) && !recursive_check(*argv))
 		{
 			error_message();
 			return (0);
