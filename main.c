@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:30:18 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:55:26 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 19:51:22 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	t_stack	stack_b;
 	t_ops	ops;
 
+	if (!args_detecter(argc, &argv[1]))
+		return (0);
 	if (!check_command_line(&argv[1], argc))
 		return (1);
 	if (!init_structs(&stack_a, &stack_b, &ops) || !list_from_argv(&argv[1],

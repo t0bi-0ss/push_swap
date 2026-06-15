@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_repetition.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 20:41:25 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:54:28 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 20:04:22 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	repetition_found(t_stack *stack)
 {
 	t_list	*current;
 
+	if (!stack->head)
+		return (0);
 	current = stack->head->next;
 	while (current != stack->head)
 	{

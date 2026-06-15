@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_for_invalid_input.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:35:24 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 20:00:53 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 19:30:37 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -66,7 +66,8 @@ SRCS = Command_line/check_for_invalid_input.c \
 	Utils/init_structs.c \
 	Utils/print_bench.c \
 	Utils/flags_compare.c \
-	Utils/ft_putstr_stderr.c 
+	Utils/ft_putstr_stderr.c \
+	Utils/args_detecter.c
 OBJDIR = Objects
 VPATH = $(sort $(dir $(SRCS)))
 OBJS = $(addprefix $(OBJDIR)/,$(notdir $(SRCS:.c=.o)))

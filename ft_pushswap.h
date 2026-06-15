@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pushswap.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:55:21 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 19:43:07 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int					get_flag(char *str);
 int					apply_flag(int flag, t_ops *ops);
 void				print_bench(t_ops *ops, t_stack *stack);
 int					ft_putstr_stderr(char *str);
+int					args_detecter(int argc, char **argv);
 
 // List management
 
