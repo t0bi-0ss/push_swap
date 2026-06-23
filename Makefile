@@ -1,7 +1,7 @@
 NAME = push_swap
 NAME_BONUS = checker
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 SRCS = CommandLine/check_for_invalid_input.c \
 	CommandLine/list_from_argv.c \
 	Lists/add_front.c \
