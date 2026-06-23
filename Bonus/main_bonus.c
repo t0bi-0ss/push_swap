@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:30:18 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/16 16:54:11 by ilbozhek         ###   ########.fr       */
+/*   Created: 2026/06/23 13:32:59 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/23 16:49:10 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_pushswap.h"
+#include "../ft_pushswap.h"
 
 int	main(int argc, char **argv)
 {
+	char	**operations_list;
 	t_stack	stack_a;
 	t_stack	stack_b;
 	t_ops	ops;
 
-	if (!args_detecter(argc, &argv[1]))
+	if (!args_detecter(argc, &argv[1]) || !operations_checker(&operations_list))
 	{
 		error_message();
-		return (0);
+		return (-1);
 	}
 	if (!check_command_line(&argv[1], argc))
-		return (1);
+		return (-1);
 	if (!init_structs(&stack_a, &stack_b, &ops) || !list_from_argv(&argv[1],
 			&stack_a, &ops))
 	{
 		error_message();
 		return (1);
 	}
-	if (ops.strategy == 0)
-		ops.adaptative = 1;
-	algorithm_selection(&stack_a, &stack_b, &ops);
-	if (ops.bench == 1)
-		print_bench(&ops, &stack_a);
+	do_operations(&stack_a, &stack_b, &ops, &operations_list);
+	is_ordered(&stack_a, &stack_b);
 	clear_lists(&stack_a, &stack_b);
 	return (0);
 }

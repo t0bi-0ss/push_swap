@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_elements.c                                  :+:      :+:    :+:   */
+/*   return_all_to_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 18:13:27 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/19 19:24:02 by ilbozhek         ###   ########.fr       */
+/*   Created: 2026/06/10 20:39:19 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/19 19:20:33 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-/*Shift up all elements of passed stack by one*/
-void	rotate_elements(t_stack *stack)
+void	return_all_to_a(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	if (!stack || !stack->head || !stack->tail)
+	if (!stack_a || !stack_b || !ops || !stack_a->head)
 		return ;
-	stack->tail = stack->head;
-	stack->head = stack->head->next;
+	while (stack_b->size > 0)
+		pa(stack_a, stack_b, ops);
 }

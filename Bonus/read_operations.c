@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   read_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 16:08:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/23 15:49:45 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/23 12:06:39 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/23 16:50:25 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*read_operations(void)
 {
-	size_t			index;
-	unsigned char	*u_s1;
-	unsigned char	*u_s2;
+	char	*tmp;
+	char	*whole;
+	char	*new_line;
 
-	if (!s1 || !s2)
-		return (0);
-	u_s1 = (unsigned char *)s1;
-	u_s2 = (unsigned char *)s2;
-	index = 0;
-	if (!n)
-		return (0);
-	while (index < n && (u_s1[index] || u_s2[index]))
+	new_line = get_next_line(0);
+	whole = NULL;
+	while (new_line)
 	{
-		if (u_s1[index] != u_s2[index])
-			return (u_s1[index] - u_s2[index]);
-		index++;
+		tmp = ft_strjoin(whole, new_line);
+		if (whole)
+		{
+			free(whole);
+			whole = NULL;
+		}
+		whole = tmp;
+		free(new_line);
+		new_line = get_next_line(0);
 	}
-	return (0);
+	return (whole);
 }

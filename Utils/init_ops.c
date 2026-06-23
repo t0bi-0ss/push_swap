@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 20:43:46 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:55:11 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/23 16:46:51 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	init_ops(t_ops *ops)
 	ops->bench = 0;
 	ops->adaptative = 0;
 	ops->total_operations = 0;
+	ops->print_ops = 1;
 	ops->sa = 0;
 	ops->sb = 0;
 	ops->ss = 0;

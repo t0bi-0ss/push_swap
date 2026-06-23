@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   is_ordered.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 16:08:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/23 15:49:45 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/23 15:19:18 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/23 16:51:07 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	is_ordered(t_stack *stack_a, t_stack *stack_b)
 {
-	size_t			index;
-	unsigned char	*u_s1;
-	unsigned char	*u_s2;
-
-	if (!s1 || !s2)
-		return (0);
-	u_s1 = (unsigned char *)s1;
-	u_s2 = (unsigned char *)s2;
-	index = 0;
-	if (!n)
-		return (0);
-	while (index < n && (u_s1[index] || u_s2[index]))
-	{
-		if (u_s1[index] != u_s2[index])
-			return (u_s1[index] - u_s2[index]);
-		index++;
-	}
-	return (0);
+	if (!stack_a || !stack_b)
+		return ;
+	calculate_disorder(stack_a);
+	if (!stack_a->disorder && !stack_b->head)
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
 }

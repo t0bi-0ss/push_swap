@@ -49,6 +49,30 @@ make re
 
 - Run `make fclean` and rebuild the project from scratch.
 
+```
+make bonus
+```
+
+- Compile bonus sources and build the `checker` executable.
+
+```
+make cleanbonus
+```
+
+- Remove all bonus object files from `ObjectsBonus/`.
+
+```
+make fcleanbonus
+```
+
+- Run `make cleanbonus` and also remove the `checker` executable.
+
+```
+make rebonus
+```
+
+- Run `make fcleanbonus` and rebuild the bonus program from scratch.
+
 ### Usage
 
 Run the program as:
@@ -71,6 +95,53 @@ Supported flags:
 - `--complex` : force radix sort
 - `--adaptive` : select the strategy automatically based on input disorder
 - `--bench` : print benchmark information after sorting
+
+### Checker bonus usage
+
+Build and run the bonus checker with:
+
+```
+make bonus
+./checker <stack>
+```
+
+Then feed operations to `checker` on stdin, for example:
+
+```
+./push_swap $(cat args.txt) | ./checker $(cat args.txt)
+```
+
+The `checker` program verifies whether the received operations sort the stack and prints either `OK` or `KO`.
+
+### Warning
+
+Program will return "Error" if a flag is passed inside a string that does not include only and exactly one of the allowed flags.
+
+Example:
+
+```
+./push_swap --bench "--simple " $(cat args.txt)
+Error
+```
+
+## Checker bonus details
+
+The `checker` bonus program is implemented in `Bonus/main_bonus.c` and supports the following behavior:
+
+- Reads the stack from command-line arguments.
+- Reads a list of operations from stdin using `Bonus/read_operations.c`.
+- Validates each operation against the allowed operation set in `Bonus/operations_checker.c`.
+- Applies the operations to stacks A and B using the same stack operations as `push_swap`.
+- Prints `OK` if the final stack A is sorted and stack B is empty.
+- Prints `KO` otherwise.
+
+A valid checker run looks like this:
+
+```
+./push_swap $(cat args.txt) | ./checker $(cat args.txt)
+```
+
+This runs `push_swap`, pipes its operations into `checker`, and verifies the result.
 
 ## Notes
 
@@ -152,6 +223,7 @@ The `push_swap` project requires sorting with a limited set of stack operations 
 
 - **ilbozhek**: implemented `flags_compare.c`, `print_bench.c`, and the flag handling logic in `Command_line/list_from_argv.c`.
 - **tsordo-o**: implemented all remaining project logic, including sorting algorithms, stack/list utilities, operations, and CLI integration.
+- **tsordo-o**: implemented the entire bonus checker support, including `Bonus/main_bonus.c`, `Bonus/read_operations.c`, `Bonus/operations_checker.c`, and bonus build integration.
 
 ## Resources
 

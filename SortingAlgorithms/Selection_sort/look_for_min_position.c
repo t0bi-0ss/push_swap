@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_elements.c                                  :+:      :+:    :+:   */
+/*   look_for_min_position.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 18:13:27 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/19 19:24:02 by ilbozhek         ###   ########.fr       */
+/*   Created: 2026/06/02 19:48:15 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/19 19:21:24 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-/*Shift up all elements of passed stack by one*/
-void	rotate_elements(t_stack *stack)
+int	look_for_min_position(t_stack *stack, int min)
 {
-	if (!stack || !stack->head || !stack->tail)
-		return ;
-	stack->tail = stack->head;
-	stack->head = stack->head->next;
+	t_list	*current;
+	int		position;
+
+	if (!stack || !stack->head)
+		return (-1);
+	if (stack->head->num == min)
+		return (0);
+	position = 1;
+	current = stack->head->next;
+	while (current != stack->head)
+	{
+		if (current->num == min)
+			return (position);
+		current = current->next;
+		position++;
+	}
+	return (-2);
 }

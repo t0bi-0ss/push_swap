@@ -6,7 +6,7 @@
 /*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 19:46:09 by ilbozhek          #+#    #+#             */
-/*   Updated: 2026/06/14 19:53:25 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/16 17:22:04 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_putstrategy(int strategy, int adaptive)
 
 void	ft_printops(t_ops *ops)
 {
-	static char	*labels[] = {"sa:", "sb:", "ss:", "pa:", "pb:", "ra:", "rb:",
+	const char	*labels[] = {"sa:", "sb:", "ss:", "pa:", "pb:", "ra:", "rb:",
 		"rr:", "rra:", "rrb:", "rrr:"};
 	int			values[11];
 	int			i;

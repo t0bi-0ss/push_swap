@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_elements.c                                  :+:      :+:    :+:   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/02 18:13:27 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/19 19:24:02 by ilbozhek         ###   ########.fr       */
+/*   Created: 2026/06/08 14:46:02 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/19 19:15:37 by ilbozhek         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_pushswap.h"
+#include "../../ft_pushswap.h"
 
-/*Shift up all elements of passed stack by one*/
-void	rotate_elements(t_stack *stack)
+void	selection_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops)
 {
-	if (!stack || !stack->head || !stack->tail)
+	ops->strategy = 1;
+	if (!stack_a || !stack_b || !ops || !stack_a->head)
 		return ;
-	stack->tail = stack->head;
-	stack->head = stack->head->next;
+	if (stack_a->disorder == 0)
+		return ;
+	if (stack_a->size >= 2 && stack_a->size <= 6)
+	{
+		assign_index(stack_a);
+		select_by_size(stack_a, stack_b, ops);
+		return ;
+	}
+	push_all_to_b(stack_a, stack_b, ops);
+	return_all_to_a(stack_a, stack_b, ops);
 }

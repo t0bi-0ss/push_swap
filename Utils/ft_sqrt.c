@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 19:13:26 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:55:03 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/15 20:25:18 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../ft_pushswap.h"
 
 /*Calculate most aproximate square root*/
 int	ft_sqrt(int num)

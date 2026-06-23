@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 11:56:52 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/14 17:55:01 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/23 17:14:32 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ static char	**ft_create_array_of_strings(int strings_num, const char *str,
 		return (NULL);
 	while (index < strings_num)
 	{
+		while(*str == delimiter && *str)
+			str++;
 		curr_str_len = chars_to_delimiter(str, delimiter);
 		arr[index] = malloc((curr_str_len + 1) * sizeof(char));
 		if (!arr[index])
@@ -66,8 +68,7 @@ static char	**ft_create_array_of_strings(int strings_num, const char *str,
 			return (NULL);
 		}
 		index++;
-		while (*str++ == delimiter)
-			str += curr_str_len;
+		str += curr_str_len;
 	}
 	arr[index] = NULL;
 	return (arr);

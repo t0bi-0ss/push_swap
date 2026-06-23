@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/21 18:24:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/15 19:43:07 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/06/23 15:49:24 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+// BUFFER_SIZE
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
 // STRUCTS
+typedef struct s_list
+{
+	char			*content;
+}					t_fd_list;
 
 typedef struct t_list
 {
@@ -40,6 +49,7 @@ typedef struct t_ops
 	int				bench;
 	int				adaptative;
 	int				total_operations;
+	int				print_ops;
 	int				sa;
 	int				sb;
 	int				ss;
@@ -73,8 +83,9 @@ void				error_message(void);
 int					get_flag(char *str);
 int					apply_flag(int flag, t_ops *ops);
 void				print_bench(t_ops *ops, t_stack *stack);
-int					ft_putstr_stderr(char *str);
+int					ft_putstr_stderr(const char *str);
 int					args_detecter(int argc, char **argv);
+void				free_arr(char ***arr);
 
 // List management
 
@@ -147,7 +158,6 @@ void				bit_set_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops,
 						int index);
 int					max_bits(int size);
 void				radix_sort(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
-int					still_bit_zero(t_stack *stack_a, int bit_index);
 
 // Sort utils
 
@@ -158,10 +168,28 @@ t_list				*get_minimum_node(t_stack *stack_a);
 void				assign_index(t_stack *stack_a);
 void				push_all_to_a(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
+void				select_by_size(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops);
+void				sort_three(t_stack *stack_a, t_ops *ops);
+void				sort_five(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				sort_four(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				sort_six(t_stack *stack_a, t_stack *stack_b, t_ops *ops);
+void				all_indexes_to_zero(t_stack *stack_a);
 
 // Algorithm selection
 
 void				algorithm_selection(t_stack *stack_a, t_stack *stack_b,
 						t_ops *ops);
+
+// Bonus
+
+char				*ft_strjoin(char const *s1, char const *s2);
+int					operations_checker(char ***str_list_ptr);
+char				*read_operations(void);
+void				do_operations(t_stack *stack_a, t_stack *stack_b,
+						t_ops *ops, char ***operations_list);
+void				is_ordered(t_stack *stack_a, t_stack *stack_b);
+char				*ft_strdup(const char *s, char stop);
+char				*get_next_line(int fd);
 
 #endif

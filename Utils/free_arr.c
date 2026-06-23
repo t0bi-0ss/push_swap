@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   free_arr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 16:08:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/06/23 15:49:45 by tsordo-o         ###   ########.fr       */
+/*   Created: 2026/06/23 12:29:41 by tsordo-o          #+#    #+#             */
+/*   Updated: 2026/06/23 16:48:18 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_pushswap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	free_arr(char ***arr)
 {
-	size_t			index;
-	unsigned char	*u_s1;
-	unsigned char	*u_s2;
+	int	index;
 
-	if (!s1 || !s2)
-		return (0);
-	u_s1 = (unsigned char *)s1;
-	u_s2 = (unsigned char *)s2;
+	if (!arr)
+		return ;
 	index = 0;
-	if (!n)
-		return (0);
-	while (index < n && (u_s1[index] || u_s2[index]))
+	while ((*arr)[index])
 	{
-		if (u_s1[index] != u_s2[index])
-			return (u_s1[index] - u_s2[index]);
+		free((*arr)[index]);
+		(*arr)[index] = NULL;
 		index++;
 	}
-	return (0);
+	free(*arr);
+	*arr = NULL;
 }

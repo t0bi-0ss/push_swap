@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags_compare.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilbozhek <ilbozhek@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 17:16:31 by ilbozhek          #+#    #+#             */
-/*   Updated: 2026/06/14 19:52:59 by ilbozhek         ###   ########.fr       */
+/*   Updated: 2026/06/23 16:51:39 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	get_flag(char *str)
 {
-	static const char	*flags[] = {"--simple", "--medium", "--complex",
-		"--adaptive", "--bench", NULL};
-	int					i;
+	const char	*flags[] = {"--simple", "--medium", "--complex", "--adaptive",
+		"--bench", NULL};
+	int			i;
 
 	i = 0;
 	while (flags[i])
